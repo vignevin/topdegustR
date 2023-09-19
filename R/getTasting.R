@@ -19,12 +19,20 @@
 getTasting <- function(host="https://topdegust.trydea.fr/api/topdegust",token,year=NULL,
                        type=NULL,id_tasting=NULL,user=NULL)
 {
-  tasting = httr::GET(paste0(host,"/degustations/",token = token),
+  result = try(httr::GET(paste0(host,"/degustations/",token = token),
                    query = list(year=year,
                                 type=type,
                                 degustation = id_tasting,
                                 user = user),
-                   httr::content_type_json(),encode ="raw")
-  tastingDF = jsonlite::fromJSON(rawToChar(tasting$content))
+                   httr::content_type_json(),encode ="raw"))
+  if(result$status_code!=200)
+  {
+    stop(paste(httr::http_status(result)$message), call. = FALSE)
+  } else
+  {
+    print(httr::http_status(result)$message)
+  }
+
+  tastingDF = jsonlite::fromJSON(rawToChar(result$content))
   return(tastingDF)
 }
