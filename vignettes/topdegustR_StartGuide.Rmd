@@ -7,6 +7,19 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+The topdegustR package offer basics functions to request data from TopDegust (IFV, France). TopDegust is an online software to collect sensory data while respecting the proper conduct of tasting methods.
+
+TopDegust was developed by the [French Wine and Vine Institute](http://www.vignevin.com/).
+
+## Installation
+
+To install the latest version of the topdegustR package :
+
+```         
+library(remotes)
+install_github("vignevin/topdegustR")
+```
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -17,6 +30,8 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(topdegustR)
 ```
+
+## Financial support
 
 This R package was developped as part of the VITIS DATA CROP project 2021-2023 (France), with the support of the French Ministry of Agriculture and Food, and the financial contribution of the special allocation account for agricultural and rural development (CASDAR). The responsability of the French Ministry of Agriculture and Food cannot be engaged.
 
