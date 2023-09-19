@@ -1,0 +1,25 @@
+---
+title: "topdegustR StartGuide"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{topdegustR_StartGuide}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(topdegustR)
+```
+
+This R package was developped as part of the VITIS DATA CROP project 2021-2023 (France), with the support of the French Ministry of Agriculture and Food, and the financial contribution of the special allocation account for agricultural and rural development (CASDAR). The responsability of the French Ministry of Agriculture and Food cannot be engaged.
+
+## Contribution
+
+You can contribute to this projetc project by creating a pull request, or use issues to track bugs or suggest ideas in a repository.
