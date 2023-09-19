@@ -2,7 +2,7 @@
 title: "topdegustR StartGuide"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{topdegustR_StartGuide}
+  %\VignetteIndexEntry{topdegustR StartGuide}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -26,6 +26,8 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+
+## Example
 
 ```{r setup}
 library(topdegustR)
