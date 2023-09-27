@@ -10,7 +10,7 @@
 #' @importFrom httr GET content_type_json
 #' @importFrom jsonlite fromJSON
 #'
-getNotes <- function(host="https://topdegust.trydea.fr/api/topdegust",token,id_tasting=NULL)
+getNotesProfile <- function(host="https://topdegust.trydea.fr/api/topdegust",token,id_tasting=NULL)
 {
   result = try(httr::GET(paste0(host,"/notes_juges/",token),
                 query = list(degustation=id_tasting),
@@ -22,8 +22,8 @@ getNotes <- function(host="https://topdegust.trydea.fr/api/topdegust",token,id_t
   {
     print(httr::http_status(result)$message)
   }
-
   notes = jsonlite::fromJSON(rawToChar(result$content))
+  if(notes$Type!="PROFILE") {stop("Tasting type is not PROFILE. Please choose a profile type tasting")}
   Names_produits <- notes$Produits
   Names_juges <- names(notes$Notes)
   Names_juges <- Names_juges[Names_juges!="PRODUITS"] ## exclusion of PRODUITS that is not a judge

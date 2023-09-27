@@ -15,30 +15,12 @@ install_github("vignevin/topdegustR")
 ## Example of use
 
 ```         
-library(landfilesRclient)
+library(topdegustR)
 
-## to get a token from the Landfiles API
-## ask to Landfiles to have a username and a password for the API
-token <- landfilesRclient::getToken(username = "********",
-                           password = "**********")
-# get a data.frame with all the groups accessible according to the rights of your account
-groups <- getGroups(token=token)
+## token given by administrator
 
-# get a data.frame with all farms from a specific group
-farms <- getFarms(group = groups$id[1],
-                  token = token)
-
-# get a data.frame with all plots from a specific group
-plots <- getPlots(group = groups$id[1],
-        token = token)
-
-
-## create a map with plots of from the group
-library(ggplot2)
-map <- map_data("france")
-ggplot(map,aes(long,lat,group=group)) +
-  geom_polygon(fill="white",color="grey") +
-  geom_jitter(data=plots,aes(x=longitude,y=latitude,group=NULL),size=3,width = 0.2,height = 0.2)
+# to load all tasting organized in 2022
+allTasting2022 <- getTasting(token=token,year=2022)
 ```
 
 ## Contribution
